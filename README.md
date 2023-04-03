@@ -160,3 +160,87 @@ await sender.connect(
 
 To send a screen to a remote listener, you can utilize the `ScreenReceiver`
 class along with the `RemoteScreenRenderer`.
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:logging/logging.dart';
+import 'package:screen_streamer/screen_streamer.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Receiver',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({
+    super.key,
+  });
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  final ScreenReceiver _receiver = ScreenReceiver();
+
+  bool _connected = false;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _receiver.listen().then(((value) {
+      _connected = true;
+      if (mounted) {
+        setState(() {});
+      }
+    }));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(_connected ? 'Connected' : 'Waiting'),
+      ),
+      body: _connected
+          ? RemoteScreenRenderer(receiver: _receiver)
+          : Center(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  const CircularProgressIndicator(),
+                  FutureBuilder(
+                    builder: (context, snapshot) => snapshot.hasData
+                        ? Padding(
+                            padding: const EdgeInsets.only(top: 8.0),
+                            child: Text(snapshot.data.toString()),
+                          )
+                        : const SizedBox(),
+                    future: _receiver.uri,
+                  ),
+                ],
+              ),
+            ),
+    );
+  }
+}
+
+
+```
