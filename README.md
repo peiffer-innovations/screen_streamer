@@ -17,7 +17,6 @@ This is compatible with all Flutter platforms, including Web, but has only been 
 This package provides two examples.  One to [send the screen](examples/sender/) and the other to [receive the screen](examples/receiver/).
 
 
-
 ---
 
 ## Setup
