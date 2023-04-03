@@ -4,6 +4,15 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
 
+- [Introduction](#introduction)
+- [Setup](#setup)
+  - [Android](#android)
+  - [iOS](#ios)
+  - [MacOS](#macos)
+  - [Linux](#linux)
+  - [Web](#web)
+  - [Windows](#windows)
+
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ---
