@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:logging/logging.dart';
 import 'package:screen_streamer/screen_streamer.dart';
 
@@ -56,18 +55,6 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
   @override
-  void initState() {
-    super.initState();
-
-    final storage = const FlutterSecureStorage();
-    storage.read(key: 'url').then((value) {
-      if (value != null && value.isNotEmpty) {
-        _controller.text = value;
-      }
-    });
-  }
-
-  @override
   void dispose() {
     _controller.dispose();
 
@@ -80,9 +67,6 @@ class _MyHomePageState extends State<MyHomePage> {
       if (mounted) {
         setState(() {});
       }
-
-      final storage = const FlutterSecureStorage();
-      await storage.write(key: 'url', value: _controller.text);
 
       await _sender.connect(
         Uri.parse(_controller.text),

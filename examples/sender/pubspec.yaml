@@ -10,7 +10,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_secure_storage: '^8.0.0'
   screen_streamer:
     path: ../../
 
