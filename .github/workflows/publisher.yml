@@ -18,29 +18,6 @@ jobs:
       - name: Validate
         uses: peiffer-innovations/actions-flutter-validate@v1
 
-      - name: Checkout Schemas
-        uses: actions/checkout@v3
-        with:
-          repository: peiffer-innovations/flutter_json_schemas
-          token: ${{ secrets.REPO_TOKEN }}
-          fetch-depth: 0
-          ref: main
-          path: schemas
-
-      - name: Update Schemas
-        run: |
-          git config --global user.name "action"
-          git config --global user.email "noop@github.com"
-          git config --global url."https://action:${{secrets.REPO_TOKEN}}@github.com/".insteadOf https://github.com/
-          rm -rf schemas/schemas/json_dynamic_widget_plugin_markdown
-          mkdir schemas/schemas/json_dynamic_widget_plugin_markdown
-          cp output/* schemas/schemas/json_dynamic_widget_plugin_markdown
-          cd schemas
-          git add .
-          git commit --allow-empty -m "json_dynamic_widget_plugin_markdown: schema update"
-          git push origin HEAD:main
-          cd ..
-
       - name: Publish
         uses: peiffer-innovations/actions-pub-publish@v1.0.1
         with:
