@@ -17,6 +17,8 @@ import 'package:sdp_transform/sdp_transform.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 import 'package:web_socket_channel_connect/web_socket_channel_connect.dart';
 
+/// Class to simplify streaming a device's screen or desktop window using
+/// WebRTC.
 class ScreenSender {
   final List<Map<String, dynamic>> _candidates = [];
   final Logger _logger = Logger('ScreenSender');
@@ -24,6 +26,8 @@ class ScreenSender {
   MediaStream? _localStream;
   RTCPeerConnection? _peerConnection;
 
+  /// Connects a screen stream to a remote listener that is listening to the
+  /// [uri].
   Future<void> connect(
     Uri uri, {
     required BuildContext context,
@@ -83,6 +87,7 @@ class ScreenSender {
     await future;
   }
 
+  /// Disconnects the stream.
   Future<void> disconnect() async {
     try {
       if (kIsWeb) {
@@ -98,6 +103,8 @@ class ScreenSender {
     _peerConnection = null;
   }
 
+  /// Returns whether or not the current device is supported by the framework.
+  /// While all platforms are supported, simulators and emulators are not.
   Future<bool> isSupported() async {
     var supported = false;
 

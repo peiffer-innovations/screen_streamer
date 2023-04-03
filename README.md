@@ -12,6 +12,9 @@
   - [Linux](#linux)
   - [Web](#web)
   - [Windows](#windows)
+- [Usage](#usage)
+  - [Sending](#sending)
+  - [Receiving](#receiving)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -23,8 +26,9 @@ A package that utilizes the super awesome [flutter_webrtc](https://pub.dev/packa
 
 This is compatible with all Flutter platforms, including Web, but has only been tested on Android, iOS, MacOS, and Web.
 
-This package provides two examples.  One to [send the screen](examples/sender/) and the other to [receive the screen](examples/receiver/).
+This package provides two examples.  One to [send the screen](https://github.com/peiffer-innovations/screen_streamer/tree/main/examples/sender) and the other to [receive the screen](https://github.com/peiffer-innovations/screen_streamer/tree/main/examples/receiver).
 
+As a note, this library will not work on simulators or emulators as the underlying frameworks don't exist.  You must use a physical device when using this framework.
 
 ---
 
@@ -130,3 +134,29 @@ No known special configuration needed for Web
 ### Windows
 
 No known special configuration needed for Windows
+
+---
+
+## Usage
+
+### Sending
+
+To send a screen to a remote listener, you can utilize the `ScreenSender` class.
+
+```dart
+
+final sender = ScreenSender();
+await sender.connect(
+  Uri.parse(_controller.text),
+  context: context,
+);
+
+```
+
+
+---
+
+### Receiving
+
+To send a screen to a remote listener, you can utilize the `ScreenReceiver`
+class along with the `RemoteScreenRenderer`.

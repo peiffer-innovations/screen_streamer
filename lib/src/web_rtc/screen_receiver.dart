@@ -10,9 +10,10 @@ import 'package:logging/logging.dart';
 import 'package:screen_streamer/screen_streamer.dart';
 import 'package:sdp_transform/sdp_transform.dart';
 
+/// Provides a mechanism to receive a WebRTC screen stream.
 class ScreenReceiver {
+  static final Logger _logger = Logger('ScreenReceiver');
   final List<Map<String, dynamic>> _candidates = [];
-  final Logger _logger = Logger('ScreenReceiver');
   final Completer<Uri> _uri = Completer<Uri>();
 
   RTCPeerConnection? _peerConnection;
@@ -31,8 +32,10 @@ completed.  Please be  sure to wait for "listen" to complete requesting
     return result;
   }
 
+  /// Returns the URI this is listening on.
   Future<Uri> get uri => _uri.future;
 
+  /// Disconnects from the screen stream.
   Future<void> disconnect() async {
     await _peerConnection?.dispose();
     _peerConnection = null;
@@ -40,6 +43,12 @@ completed.  Please be  sure to wait for "listen" to complete requesting
     _remoteVideoRenderer = null;
   }
 
+  /// Listens for a screen stream.  If an [address] is not provided then this
+  /// will attempt to bind to the first IPv4 address that is detected via
+  /// [NetworkInterface].
+  ///
+  /// The [candidateDelay] is the amount of time to wait for the device to
+  /// provide an answer to the offer.
   Future<void> listen({
     InternetAddress? address,
     Duration? candidateDelay,

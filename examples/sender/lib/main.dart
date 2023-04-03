@@ -143,8 +143,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   Expanded(
                     child: TextFormField(
                       controller: _controller,
-                      decoration:
-                          const InputDecoration(label: Text('Receiver URL')),
+                      decoration: const InputDecoration(
+                        label: Text('Receiver URL'),
+                      ),
                     ),
                   ),
                   const SizedBox(width: 8.0),

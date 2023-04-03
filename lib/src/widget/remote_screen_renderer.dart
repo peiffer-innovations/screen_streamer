@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_webrtc/flutter_webrtc.dart';
 import 'package:screen_streamer/screen_streamer.dart';
 
+/// Widget that can render a WebRTC stream provided by a remote device.
 class RemoteScreenRenderer extends StatefulWidget {
+  /// Constructs the renderer with the connected receiver.
   RemoteScreenRenderer({
     super.key,
     required this.receiver,
