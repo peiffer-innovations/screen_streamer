@@ -1,4 +1,4 @@
-# screen_streamer
+# sender
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -10,13 +10,11 @@
 
 ## Introduction
 
-A package that utilizes the super awesome [flutter_webrtc](https://pub.dev/packages/flutter_webrtc) package to be able to send the screen from one device to another.  The package was inspired by a closed [Flutter Issue](https://github.com/flutter/flutter/issues/81653).
+An example of how to use the [screen_streamer](https://github.com/peiffer-innovations/screen_streamer) package to send a screencast.  To generate the files needed for the various platforms, execute:
 
-This is compatible with all Flutter platforms, including Web, but has only been tested on Android, iOS, MacOS, and Web.
-
-This package provides two examples.  One to [send the screen](examples/sender/) and the other to [receive the screen](examples/receiver/).
-
-
+```
+flutter create .
+```
 
 ---
 
