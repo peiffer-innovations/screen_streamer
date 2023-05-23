@@ -1,17 +1,17 @@
 name: 'screen_streamer'
 description: "A library that can stream an android, ios, etc. Flutter application's screen using WebRTC"
 homepage: 'https://github.com/peiffer-innovations/screen_streamer'
-version: '1.0.0+7'
+version: '1.0.0+8'
 
 environment: 
   sdk: '>=2.19.0 <4.0.0'
 
 dependencies: 
-  device_info_plus: '^9.0.0'
+  device_info_plus: '^9.0.1'
   flutter: 
     sdk: 'flutter'
   flutter_background_service: '^2.4.6'
-  flutter_webrtc: '^0.9.29+hotfix.1'
+  flutter_webrtc: '^0.9.30+hotfix.2'
   logging: '^1.1.1'
   sdp_transform: '^0.3.2'
   web_socket_channel: '^2.4.0'
