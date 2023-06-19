@@ -10,7 +10,7 @@ dependencies:
   device_info_plus: '^9.0.2'
   flutter: 
     sdk: 'flutter'
-  flutter_background_service: '^2.4.6'
+  flutter_background_service: ">=2.4.6 <4.0.0"
   flutter_webrtc: '^0.9.33'
   logging: '^1.2.0'
   sdp_transform: '^0.3.2'
