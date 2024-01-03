@@ -15,7 +15,6 @@ import 'package:screen_streamer/screen_streamer.dart';
 import 'package:screen_streamer/src/web_rtc/screen_select_dialog.dart';
 import 'package:sdp_transform/sdp_transform.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
-import 'package:web_socket_channel_connect/web_socket_channel_connect.dart';
 
 /// Class to simplify streaming a device's screen or desktop window using
 /// WebRTC.
@@ -49,7 +48,7 @@ class ScreenSender {
       } else if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
         source = await showDialog<DesktopCapturerSource>(
           context: context,
-          builder: (context) => ScreenSelectDialog(),
+          builder: (context) => const ScreenSelectDialog(),
         );
       }
     }
@@ -59,8 +58,9 @@ class ScreenSender {
     Completer? completer = Completer();
     final future = completer.future;
 
-    WebSocketChannel? ws = await connectWebSocket(uri);
+    WebSocketChannel? ws = WebSocketChannel.connect(uri);
     try {
+      await ws.ready;
       ws.stream.listen((message) async {
         final map = json.decode(message);
 

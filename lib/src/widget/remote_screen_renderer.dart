@@ -5,7 +5,7 @@ import 'package:screen_streamer/screen_streamer.dart';
 /// Widget that can render a WebRTC stream provided by a remote device.
 class RemoteScreenRenderer extends StatefulWidget {
   /// Constructs the renderer with the connected receiver.
-  RemoteScreenRenderer({
+  const RemoteScreenRenderer({
     super.key,
     required this.receiver,
   });
@@ -13,7 +13,7 @@ class RemoteScreenRenderer extends StatefulWidget {
   final ScreenReceiver receiver;
 
   @override
-  _RemoteScreenRendererState createState() => _RemoteScreenRendererState();
+  State createState() => _RemoteScreenRendererState();
 }
 
 class _RemoteScreenRendererState extends State<RemoteScreenRenderer> {

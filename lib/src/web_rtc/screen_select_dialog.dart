@@ -6,6 +6,8 @@ import 'package:logging/logging.dart';
 
 /// Dialog to select what screen or window to stream.
 class ScreenSelectDialog extends Dialog {
+  const ScreenSelectDialog({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -56,9 +58,9 @@ class _ScreenSelectContainerState extends State<_ScreenSelectContainer> {
   @override
   void dispose() {
     _timer?.cancel();
-    _subscriptions.forEach((element) {
+    for (var element in _subscriptions) {
       element.cancel();
-    });
+    }
 
     _subscriptions.clear();
 
@@ -67,9 +69,9 @@ class _ScreenSelectContainerState extends State<_ScreenSelectContainer> {
 
   void _cancel(context) async {
     _timer?.cancel();
-    _subscriptions.forEach((element) {
-      element.cancel();
-    });
+    for (var element in _subscriptions) {
+      await element.cancel();
+    }
     _subscriptions.clear();
 
     if (mounted) {
@@ -80,19 +82,19 @@ class _ScreenSelectContainerState extends State<_ScreenSelectContainer> {
   Future<void> _getSources() async {
     try {
       final sources = await desktopCapturer.getSources(types: [_sourceType]);
-      sources.forEach((element) {
+      for (var element in sources) {
         _logger.finer(
           'name: ${element.name}, id: ${element.id}, type: ${element.type}',
         );
-      });
+      }
       _timer?.cancel();
       _timer = Timer.periodic(const Duration(seconds: 3), (timer) {
         desktopCapturer.updateSources(types: [_sourceType]);
       });
       _sources.clear();
-      sources.forEach((element) {
+      for (var element in sources) {
         _sources[element.id] = element;
-      });
+      }
       _stateSetter?.call(() {});
     } catch (e, stack) {
       _logger.severe(
@@ -105,9 +107,9 @@ class _ScreenSelectContainerState extends State<_ScreenSelectContainer> {
 
   void _ok(context) async {
     _timer?.cancel();
-    _subscriptions.forEach((element) {
-      element.cancel();
-    });
+    for (var element in _subscriptions) {
+      await element.cancel();
+    }
     Navigator.pop<DesktopCapturerSource>(context, _selectedSource);
   }
 
@@ -166,13 +168,13 @@ class _ScreenSelectContainerState extends State<_ScreenSelectContainer> {
                                         : SourceType.Window;
                                     _getSources();
                                   }),
-                              tabs: [
-                                const Tab(
+                              tabs: const [
+                                Tab(
                                     child: Text(
                                   'Entire Screen',
                                   style: TextStyle(color: Colors.black54),
                                 )),
-                                const Tab(
+                                Tab(
                                     child: Text(
                                   'Window',
                                   style: TextStyle(color: Colors.black54),
@@ -235,7 +237,7 @@ class _ScreenSelectContainerState extends State<_ScreenSelectContainer> {
               ),
             ),
           ),
-          Container(
+          SizedBox(
             width: double.infinity,
             child: ButtonBar(
               children: <Widget>[
@@ -268,11 +270,10 @@ class _ScreenSelectContainerState extends State<_ScreenSelectContainer> {
 
 class _ThumbnailWidget extends StatefulWidget {
   const _ThumbnailWidget({
-    Key? key,
     required this.onTap,
     required this.selected,
     required this.source,
-  }) : super(key: key);
+  });
 
   final Function(DesktopCapturerSource) onTap;
   final bool selected;
@@ -298,9 +299,9 @@ class _ThumbnailWidgetState extends State<_ThumbnailWidget> {
 
   @override
   void deactivate() {
-    _subscriptions.forEach((element) {
+    for (var element in _subscriptions) {
       element.cancel();
-    });
+    }
     super.deactivate();
   }
 

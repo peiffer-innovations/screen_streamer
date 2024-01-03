@@ -1,3 +1,8 @@
+## [1.0.1] - January 3rd, 2024
+
+* Removed unnecessary `web_socket_channel_connect` dependency
+
+
 ## [1.0.0+28] - December 5, 2023
 
 * Automated dependency updates
