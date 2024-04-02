@@ -1,23 +1,21 @@
-name: receiver
-
+name: 'receiver'
 publish_to: 'none'
+version: '1.0.0+2'
 
-version: 1.0.0+1
-
-environment:
+environment: 
   sdk: '>=3.0.0 <4.0.0'
 
-dependencies:
-  flutter:
-    sdk: flutter
+dependencies: 
+  flutter: 
+    sdk: 'flutter'
   logging: '^1.2.0'
-  screen_streamer:
-    path: ../../
+  screen_streamer: 
+    path: '../../'
 
-dev_dependencies:
-  flutter_lints: '^3.0.1'
-  flutter_test:
-    sdk: flutter
+dev_dependencies: 
+  flutter_lints: '^3.0.2'
+  flutter_test: 
+    sdk: 'flutter'
 
-flutter:
+flutter: 
   uses-material-design: true
