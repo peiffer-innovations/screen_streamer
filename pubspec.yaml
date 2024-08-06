@@ -1,17 +1,17 @@
 name: 'screen_streamer'
 description: "A library that can stream an android, ios, etc. Flutter application's screen using WebRTC"
 homepage: 'https://github.com/peiffer-innovations/screen_streamer'
-version: '1.0.1+7'
+version: '1.0.1+8'
 
 environment: 
   sdk: '>=3.0.0 <4.0.0'
 
 dependencies: 
-  device_info_plus: '^10.1.0'
+  device_info_plus: '^10.1.1'
   flutter: 
     sdk: 'flutter'
-  flutter_background_service: '^5.0.5'
-  flutter_webrtc: '^0.10.6'
+  flutter_background_service: '^5.0.7'
+  flutter_webrtc: '^0.11.6'
   logging: '^1.2.0'
   sdp_transform: '^0.3.2'
   web_socket_channel: '^2.4.0'
@@ -21,33 +21,27 @@ dev_dependencies:
   flutter_test: 
     sdk: 'flutter'
 
-permittedLicenses:
-  - Apache-2.0
-  - BSD-2-Clause
-  - BSD-3-Clause
-  - MIT
-  - MIT-Modern-Variant
-  - MPL-2.0
-  - Zlib
+permittedLicenses: 
+  - 'Apache-2.0'
+  - 'BSD-2-Clause'
+  - 'BSD-3-Clause'
+  - 'MIT'
+  - 'MIT-Modern-Variant'
+  - 'MPL-2.0'
+  - 'Zlib'
 
-# The [license_checker](https://pub.dev/packages/license_checker) package cannot
-# detect the built in Flutter packages because they aren't published to pub.dev
-# and do not have a LICENSE file in their respective folders.  So this section
-# informs the license_checker that all the built in Flutter packages all have
-# the same BSD-3-Clause license as Flutter itself. 
 packageLicenseOverride: 
-  flutter: BSD-3-Clause
-  flutter_driver: BSD-3-Clause
-  flutter_goldens: BSD-3-Clause
-  flutter_localizations: BSD-3-Clause
-  flutter_web_plugins: BSD-3-Clause
-  flutter_test: BSD-3-Clause
-  fuchsia_remote_debug_protocol: BSD-3-Clause
-  integration_test: BSD-3-Clause
-  rxdart: Apache-2.0
+  flutter: 'BSD-3-Clause'
+  flutter_driver: 'BSD-3-Clause'
+  flutter_goldens: 'BSD-3-Clause'
+  flutter_localizations: 'BSD-3-Clause'
+  flutter_web_plugins: 'BSD-3-Clause'
+  flutter_test: 'BSD-3-Clause'
+  fuchsia_remote_debug_protocol: 'BSD-3-Clause'
+  integration_test: 'BSD-3-Clause'
+  rxdart: 'Apache-2.0'
 
-ignore_updates:
- 
+ignore_updates: 
   - 'archive'
   - 'async'
   - 'boolean_selector'
