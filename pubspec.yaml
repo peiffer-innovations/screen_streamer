@@ -3,12 +3,12 @@ description: "A library that can stream an android, ios, etc. Flutter applicatio
 homepage: 'https://github.com/peiffer-innovations/screen_streamer'
 version: '1.0.1+7'
 
-environment: 
+environment:
   sdk: '>=3.0.0 <4.0.0'
 
-dependencies: 
+dependencies:
   device_info_plus: '^10.1.0'
-  flutter: 
+  flutter:
     sdk: 'flutter'
   flutter_background_service: '^5.0.5'
   flutter_webrtc: '^0.10.6'
@@ -16,9 +16,9 @@ dependencies:
   sdp_transform: '^0.3.2'
   web_socket_channel: '^2.4.0'
 
-dev_dependencies: 
-  flutter_lints: '^4.0.0'
-  flutter_test: 
+dev_dependencies:
+  flutter_lints: '^5.0.0'
+  flutter_test:
     sdk: 'flutter'
 
 permittedLicenses:
@@ -34,8 +34,8 @@ permittedLicenses:
 # detect the built in Flutter packages because they aren't published to pub.dev
 # and do not have a LICENSE file in their respective folders.  So this section
 # informs the license_checker that all the built in Flutter packages all have
-# the same BSD-3-Clause license as Flutter itself. 
-packageLicenseOverride: 
+# the same BSD-3-Clause license as Flutter itself.
+packageLicenseOverride:
   flutter: BSD-3-Clause
   flutter_driver: BSD-3-Clause
   flutter_goldens: BSD-3-Clause
@@ -47,7 +47,6 @@ packageLicenseOverride:
   rxdart: Apache-2.0
 
 ignore_updates:
- 
   - 'archive'
   - 'async'
   - 'boolean_selector'
