@@ -239,7 +239,7 @@ class _ScreenSelectContainerState extends State<_ScreenSelectContainer> {
           ),
           SizedBox(
             width: double.infinity,
-            child: ButtonBar(
+            child: OverflowBar(
               children: <Widget>[
                 MaterialButton(
                   child: const Text(

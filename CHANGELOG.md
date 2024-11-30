@@ -1,3 +1,13 @@
+## [1.0.2] - November 30, 2024
+
+* Fixed analysis issue
+
+
+## [1.0.1+8] - November 26, 2024
+
+* Automated dependency updates
+
+
 ## [1.0.1+7] - May 14, 2024
 
 * Automated dependency updates
@@ -181,40 +191,3 @@
 ## [1.0.0] - April 3rd, 2023
 
 * Initial release
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
