@@ -39,6 +39,7 @@ packageLicenseOverride:
   flutter_test: 'BSD-3-Clause'
   fuchsia_remote_debug_protocol: 'BSD-3-Clause'
   integration_test: 'BSD-3-Clause'
+  platform_detect: 'Apache-2.0'
   rxdart: 'Apache-2.0'
 
 ignore_updates:
