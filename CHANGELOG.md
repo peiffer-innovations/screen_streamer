@@ -1,3 +1,8 @@
+## [1.0.2] - November 30, 2024
+
+* Fixed analysis issue
+
+
 ## [1.0.1+8] - November 26, 2024
 
 * Automated dependency updates
